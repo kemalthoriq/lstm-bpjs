@@ -15,7 +15,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
 
-export default function Dashboard() {
+export default function Page() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -68,33 +68,13 @@ export default function Dashboard() {
           <Package2 className="h-6 w-6" />
           <span>Dashboard</span>
         </Link>
-        <nav className="hidden md:flex gap-6 ml-6">
-          <Link href="#welcome" className="text-sm font-medium">
-            Home
-          </Link>
-          <Link href="#stats" className="text-sm font-medium">
-            Stats
-          </Link>
-          <Link href="#charts" className="text-sm font-medium">
-            Charts
-          </Link>
-          <Link href="#form" className="text-sm font-medium">
-            Contact
-          </Link>
-        </nav>
-        <div className="ml-auto flex items-center gap-4">
-          {/* <Button variant="ghost" size="icon" className="rounded-full">
-            <User className="h-5 w-5" />
-            <span className="sr-only">Profile</span>
-          </Button> */}
-        </div>
       </header>
 
       {/* Main Content */}
-      <main className="flex-1">
+      <main className="flex-1 w-full">
         {/* Section 1: Landing/Welcome */}
         <section id="welcome" className="bg-gradient-to-b from-muted/50 to-background py-12 md:py-16 lg:py-20">
-          <div className="container px-4 md:px-6">
+          <div className="w-full px-4 md:px-6">
             <div className="flex flex-col items-center text-center space-y-4">
               <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Welcome to Your Dashboard</h1>
               <p className="max-w-[700px] text-muted-foreground md:text-xl">
@@ -110,9 +90,9 @@ export default function Dashboard() {
 
         {/* Section 2: Stats */}
         <section id="stats" className="py-12 md:py-16">
-          <div className="container px-4 md:px-6">
+          <div className="w-full px-4 md:px-6">
             <h2 className="text-2xl font-bold tracking-tight mb-8">Key Statistics</h2>
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            <div className="grid w-full gap-4 md:grid-cols-2 lg:grid-cols-4">
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between pb-2">
                   <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>
@@ -171,16 +151,16 @@ export default function Dashboard() {
 
         {/* Section 3: Three Pie Charts */}
         <section id="charts" className="py-12 md:py-16 bg-muted/30">
-          <div className="container px-4 md:px-6">
+          <div className="w-full px-4 md:px-6">
             <h2 className="text-2xl font-bold tracking-tight mb-8">Data Visualization</h2>
-            <div className="grid gap-6 md:grid-cols-3">
+            <div className="grid w-full gap-6 md:grid-cols-3">
               <Card>
                 <CardHeader>
                   <CardTitle>Revenue Sources</CardTitle>
                   <CardDescription>Distribution by category</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="h-[300px]">
+                  <div className="h-[300px] w-full">
                     <ChartContainer
                       config={{
                         categoryA: {
@@ -226,7 +206,7 @@ export default function Dashboard() {
                   <CardDescription>Distribution by group</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="h-[300px]">
+                  <div className="h-[300px] w-full">
                     <ChartContainer
                       config={{
                         group1: {
@@ -272,7 +252,7 @@ export default function Dashboard() {
                   <CardDescription>Distribution by type</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="h-[300px]">
+                  <div className="h-[300px] w-full">
                     <ChartContainer
                       config={{
                         typeX: {
@@ -317,8 +297,8 @@ export default function Dashboard() {
 
         {/* Section 4: Form */}
         <section id="form" className="py-12 md:py-16">
-          <div className="container px-4 md:px-6">
-            <div className="mx-auto max-w-2xl">
+          <div className="w-full px-4 md:px-6">
+            <div className="w-full mx-auto max-w-md">
               <div className="text-center mb-8">
                 <h2 className="text-2xl font-bold tracking-tight">Contact Us</h2>
                 <p className="text-muted-foreground mt-2">
@@ -329,7 +309,7 @@ export default function Dashboard() {
               <Card>
                 <CardContent className="pt-6">
                   <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="grid gap-2">
+                    <div className="grid w-full gap-2">
                       <Label htmlFor="name">Name</Label>
                       <Input
                         id="name"
@@ -341,7 +321,7 @@ export default function Dashboard() {
                       />
                     </div>
 
-                    <div className="grid gap-2">
+                    <div className="grid w-full gap-2">
                       <Label htmlFor="email">Email</Label>
                       <Input
                         id="email"
@@ -354,10 +334,10 @@ export default function Dashboard() {
                       />
                     </div>
 
-                    <div className="grid gap-2">
+                    <div className="grid w-full gap-2">
                       <Label htmlFor="category">Category</Label>
                       <Select value={formData.category} onValueChange={handleSelectChange}>
-                        <SelectTrigger>
+                        <SelectTrigger className="w-full">
                           <SelectValue placeholder="Select a category" />
                         </SelectTrigger>
                         <SelectContent>
@@ -369,7 +349,7 @@ export default function Dashboard() {
                       </Select>
                     </div>
 
-                    <div className="grid gap-2">
+                    <div className="grid w-full gap-2">
                       <Label htmlFor="message">Message</Label>
                       <Textarea
                         id="message"
